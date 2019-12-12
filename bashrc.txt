@@ -1,0 +1,24 @@
+alias reterm="gnome-terminal; exit"
+alias venv="source /home/simpleuser/env/bin/activate; cd ~/newinf"
+alias novenv="deactivate;"
+alias ebash="nano ~/.bashrc"
+
+upserv() {
+  python manage.py runserver "$1"
+}
+
+godev () {
+  while [ $# != 0 ]
+  do
+    if [ $1 == "-v" ]; then
+      venv
+      elif [ $1 == "-c" ]; then
+        code
+        elif [ $1 == "-t" ]; then
+          gnome-terminal 
+        else echo "Нет такого ключа $1!" ; 
+        return [1]      
+    fi        
+    shift
+  done
+}
